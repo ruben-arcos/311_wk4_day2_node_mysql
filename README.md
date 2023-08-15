@@ -2,22 +2,46 @@
 
 ## Setup
 
-Initialize and run the app: `npm install` && `npm start`.
+We're going to update this project to user newer modules and syntax
 
-The app is using `nodemon`. Any changes made (and saved) will cause the server to restart.
+1. In BeeKeeper or MySQL Workbench, connect to the database and run the initialize.sql script that is included in this project.
 
-Navigate to the `sql/connections.js` file and alter the following fields to reflect your database setup:
+2. delete package.json and package-lock.json (also  delete           node_modules if you already installed)
 
-```
-  host: 'localhost',
-  user: 'root',
-  password: 'password',
-  database: 'admin'
-```
+3. create a new package.json to use latest versions of:
+    devDependencies
+        nodemon
+    dependencies
+        express
+        mysql
+        dotenv
+    add start and dev commands to "scripts"
 
-These will be the same credentials we used to set up a connection in MySQL Workbench.
+4. npm install
 
-Finally, in MySQL Workbench, run the `initialize.sql` script that is included in this project.
+5. create a .env file and add your db creds
+    add to .gitignore
+
+6. create a public folder
+    add index.html  -- come back and ! link the stylesheet and add h1 'It works'
+   add index.css
+
+7. index.js
+    remove bodyParser
+    add app.use(express.json());
+    add app.use(express.static('public'));
+    remove app.get 'Welcome to our server'
+ 
+
+8. create a .env file
+    add your db creds
+
+9. connection.js
+    require('dotenv').config()
+    add your db creds variables
+
+10. test to make sure get /users works
+
 
 ## Overview
 
